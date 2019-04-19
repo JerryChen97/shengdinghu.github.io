@@ -1,0 +1,531 @@
+
+
+
+
+
+  
+
+ 
+
+
+ <script>
+      baseUrl = '';
+      var wlxtlang_quxiao = "取消";
+      var wlxtlang_queding = "确定";
+      var wlxtlang_zidongguanbidaojishi = "自动关闭倒计时{0}秒";
+      var wlxtlang_quedingjixu = "确定继续吗？";
+ </script>
+  
+ <script type="text/javascript" src="/res/app/wlxt/js/jquery.js?v=322"></script>
+  <script type="text/javascript" src="/res/app/wlxt/js/gl.js?v=322"></script>
+ <script type="text/javascript" src="/res/app/wlxt/js/plugin/qtip.js?v=322"></script>
+ <script type="text/javascript" src="/res/app/wlxt/js/plugin/template.js?v=322"></script>
+ <script type="text/javascript" src="/res/app/wlxt/js/plugin/select2/select2.js?v=322"></script>
+  <script src="/res/ui/plugins/showLoading/showLoading.min.js?v=322" type="text/javascript"></script>
+  <script src="/res/js/common/utils.js?v=322"></script>
+  <script src="/res/js/common/dataTablePlugin.js?v=322"></script>
+ <script type="text/javascript" src="/res/app/wlxt/js/plugin/zeroModal/zeroModal.js?v=322"></script>
+  <script src="/res/js/common/myApp.js?v=322"></script>  
+ <script type="text/javascript" language="javascript" src="/res/app/wlxt/js/plugin/datatable/jquery.dataTables.js?v=322"></script>
+ <script type="text/javascript" src="/res/app/wlxt/js/plugin/pagination/jquery.pagination.js?v=322"></script>
+ <script src="/res/ui/plugins/ajaxFileUpload/ajaxfileupload.js?v=322" type="text/javascript"></script>
+ 
+     <!--[if lte IE 9]>
+    <script type="text/javascript"  src="http://www.ijquery.cn/js/html5shiv.js?v=322"></script>
+    <script src="/res/app/wlxt/js/plugin/upload.js?v=322"></script>
+    <![endif]--> 
+ <script src="/res/app/wlxt/js/plugin/upload-cropper/amazeui.min.js?v=322" charset="utf-8"></script>
+    <script src="/res/app/wlxt/js/plugin/upload-cropper/cropper.min.js?v=322" charset="utf-8"></script>
+ <script src="/res/app/wlxt/js/plugin/upload-cropper/mycropper_img.js?v=322" ></script>
+  <script type="text/javascript" src="/res/app/wlxt/js/common.js?v=322"></script>
+ 
+    <script type="text/javascript" src="/res/app/wlxt/js/play.js?v=322"></script>
+   <script type="text/javascript" >
+   $(document).ready(function() {
+		var hostUrl = window.location.host;
+		var httpUrl = window.location.protocol+"//";
+		var localUrl = window.location.href;
+		var start = hostUrl.length+httpUrl.length+3
+		var end = localUrl.lastIndexOf("/")-8;
+		var testUrl = localUrl.substring(start,end);
+		var thisUrl = localUrl.substring(start,end).replace(/\//g,"_");
+		var strurl = thisUrl.split("_");
+		var i=0;
+		var idurl = "#";
+		while (i<strurl.length){
+			idurl = idurl+strurl[i]+"_";
+			i++;
+		}
+// 		alert(idurl.substring(0,idurl.length-1));
+		
+		if(idurl.substring(0,idurl.length-1)=="#wlxt_kczy_xszy"){
+			$("#wlxt_kczy_zy").addClass("select");
+		}else if((idurl.substring(0,idurl.length-1)=="#wlxt_index_course_teacher_from01to18Course?wlkcid=") || 
+				(idurl.substring(0,idurl.length-1)=="#wlxt_index_course_student_from01to18Course?wlkcid=")){
+			$("#wlxt_index_course").addClass("select");
+		}else{
+			$(idurl.substring(0,idurl.length-1)).addClass("select");
+		}
+		
+});
+  </script>
+  <script type="text/javascript"  src="/component/MathJaxMini/MathJax-extend.js?v=322" ></script>
+ 
+ 
+
+
+
+
+  
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <title> 清华大学网络学堂</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/res/app/wlxt/font-awesome/css/font-awesome.css?v=322" />
+    <link rel="stylesheet" href="/res/app/wlxt/css/zeroModal/zeroModal.css?v=322">
+	<link rel="stylesheet" type="text/css" href="/res/app/wlxt/myfonts/fonticon.css?v=322">
+    <link rel="stylesheet" href="/res/app/wlxt/css/common.css?v=322">
+    <link rel="stylesheet" href="/res/app/wlxt/css/index-new.css?v=322">
+    <script type="text/javascript" src="/res/app/wlxt/js/jquery.js?v=322"></script>
+     <script type="text/javascript" src="/res/app/wlxt/js/common.js?v=322"></script>
+	<script type="text/javascript" src="/res/app/wlxt/js/plugin/zeroModal/zeroModal.js?v=322"></script>
+    <style>
+        /*.header .w{width: 1280px;height:70px;margin: 0 auto;background-color: #ffffff;}
+        .header .left img{padding-top: 10px;height: 40px;}
+        .header, .header .w{background-color: #ffffff}
+        .header .right {line-height: 60px;height: 60px;}
+        .header .right >div a {color: #777;}
+        .header .right >div a:hover{color:#1392f1;}
+        .header .right >div:last-child {margin-right: 10px;}*/
+        /* .tit .right{width:50px;} */
+        .tit .right .more +.pic-space{margin-right:0;}
+    </style>
+</head>
+<body  class="CN" >
+  <input type="hidden" id="local" value="zh"></input>
+  
+<div class="header" style="background-color: #ffffff">
+    <div class="w" style="background-color: #ffffff">
+        <div class="left">
+            <a href="#"><img src="/res/app/wlxt/img/logo.svg" alt="清华大学|网络学堂"></a>
+        </div>
+        <div class="right" >
+            <div><a target="_blank"  rel="noopener noreferrer" href="/f/wlxt/common/courseSearch"><i class="webicon-top-search" ></i>课程搜索</a></div>
+           <!--  <div><a><i class="webicon-china" ></i>英文</a></div> -->
+            <div><a target="_blank"  rel="noopener noreferrer" href="/f/wlxt/common/help"><i class="webicon-help" ></i>帮助</a></div>
+        </div>
+    </div>
+</div>
+<div class="banner">
+    <div class="log-box">
+    <div class="after">
+            <div class="bgcolor bgcolor2">
+                <div class="looogo">
+                 <img class="loogo-img"  src="/b/wlxt/kc/v_kcxx_jskcxx/teacher/showMyImage">
+                  
+                    <span class="teacher">欢迎您，<span style="color: #333333;"> 
+                    胡声鼎 
+                    
+	                 
+                     	同学
+                     
+                    </span></span> |
+                    <span class="depart"> 物理系</span>
+                    <span class="lesson">本学期您有<span class='lesson_lse'> 7</span>门课程</span>
+                    <a href="/f/wlxt/index/course/student/" class="gotoin">进入我的课程</a>
+                </div>
+                <a class="quick" style="cursor:pointer" onclick="beforeLogout();" style=""><i class="webicon-out"></i> 退出登录</a>
+            </div>
+        </div>
+</div>
+ </div>
+<!--学堂公告-->
+<div class="notice   pt_1100 pt50" style="">
+    <div class="tit">
+        <div class="left">
+            <span class="xuetang">学堂公告</span><span class="not">Notice</span>
+        </div>
+        <div class="right" onclick="hrefnoticelist()">
+              <div class="more">更多</div>
+              <i class="webicon-more2"></i>
+        </div>
+    </div>
+    <div class="con" id="notice">
+        <div class="con-hover">
+        </div>
+    </div>
+</div>
+
+<!--全球公开课-->
+<div class="notice">
+    <div class="tit">
+        <div class="left">
+            <span class="xuetang">全球公开课</span><span class="not">Global open courses</span>
+        </div>
+        <div class="right" onclick="hrefglobalist()">
+            <div class="more">更多</div>
+            <i class="webicon-more2"></i>
+        </div>
+    </div>
+     <!-- 全球公开课  begin-->
+    <div id ="course2div" class="con clearfix">
+     <p class="ltcon ltconquanqiu"></p>
+        <p class="rtcon rtconquanqiu"></p>
+        <div id="rollGlobal" >
+           <ul style="width: 5200px;" class="clearfix"></ul>
+        </div>
+   </div>
+   
+    <!--校内课程-->
+  <div class="notice   notic_uni" style="margin-bottom: 40px;">
+    <div class="tit">
+        <div class="left">
+            <span class="xuetang">校内课程</span><span class="not">University open courses</span>
+        </div>
+        <div class="right" onclick="hrefcourse1list();">
+            <div class="more">更多</div>
+            <i class="webicon-more2"></i>
+        </div>
+    </div>
+    <div class="con   con_uni clearfix" id="course3div">
+      <p class="ltcon ltconxiaonei"></p>
+        <p class="rtcon rtconxiaonei"></p>
+		<div id="roll">
+       		  <ul   id="course1" style="width: 5200px;cursor:pointer" class="clearfix"><!-- id="course1" -->
+      		
+      		 </ul>
+   		</div>
+    </div>
+</div>
+<!-- 校内课程 end -->
+</div>
+ 
+
+	<link rel="stylesheet" type="text/css" href="/res/app/wlxt/css/table.css?v=322">
+
+    <!--返回顶部-->
+    <div class="right_btn ">
+        <div id="goTopBtn" class="goTopBtn"></div>
+        <div class="erweima">
+            <div class="codedee">
+                <div class="right-triangle"></div>
+                <div class="code-img"><img src="/res/app/wlxt/img/jiaowu-erweima.png"></div>
+                <p class="zizizi">教务处官方微信公众号</p>
+            </div>
+        </div>
+    </div>
+ <div class="footer" style="">
+    <div class="w clearfix">
+        <div class="left">Copyrights 2001-2025&nbsp;&nbsp;清华大学版权所有</div>
+        <div class="right"><a  href="" id="emailHref">问题反馈邮箱: learn2018<img src="/res/images/emailpic1.png" style="width: 16px;height: 16px;vertical-align:middle">tsinghua.edu.cn</a>&nbsp;&nbsp;&nbsp;&nbsp;服务热线: 62788122&nbsp;&nbsp;</div>
+</div>
+<script>
+function goTopEx() {
+    var obj = document.getElementById("goTopBtn");
+
+
+    function getScrollTop() {
+        return document.documentElement.scrollTop + document.body.scrollTop;
+    }
+    function setScrollTop(value) {
+        if (document.documentElement.scrollTop) {
+            document.documentElement.scrollTop = value;
+        } else {
+            document.body.scrollTop = value;
+        }
+    }
+
+
+    window.onscroll = function() {
+
+        // console.log($(this))
+            var h = window.innerHeight;//div可视区域的高度
+            var sh = document.body.scrollHeight;//滚动的高度
+            var st = window.document.documentElement.scrollTop + document.body.scrollTop;//滚动条的高度，即滚动条的当前位置到div顶部的距离
+            if(h+st>=sh-60){
+                // console.log("滑到底部了");
+                $('.right_btn').addClass('abs')
+            }else{
+                $('.right_btn').removeClass('abs')
+            }
+        getScrollTop() > 100 ? obj.style.display = "block": obj.style.display = "none";
+    };
+    obj.onclick = function() {
+        var goTop = setInterval(scrollMove, 10);
+        function scrollMove() {
+            setScrollTop(getScrollTop() / 1.1);
+            if (getScrollTop() < 1) clearInterval(goTop);
+        }
+    }
+}
+      goTopEx();
+
+$("#emailHref").click(function () {
+    var strArray = ["learn2018","@","tsinghua.edu.cn"];
+    var str = "mailto:";
+    for(var i =0;i<strArray.length;i++){
+        str+=strArray[i];
+    }
+    $(this).attr("href",str);
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+    var wlxtlang_chakanxiangqing = "查看详情";
+    var wlxtlang_logoutwlxt = "您将要退出网络学堂";
+//退出
+function beforeLogout(){
+	
+	var info=wlxtlang_logoutwlxt;//'您将要退出网络学堂';
+	MyApp.showConfirm(info,function(){
+		 MyApp.post("/f/j_spring_security_logout",function () {
+	            	window.location.href = "/";
+	        });
+		 
+	});
+	
+}
+$(function(){
+	 locale = $("#local").val();
+	 baseUrl = '';
+    $("#roll").delegate('li', 'mouseenter', function(event) {
+          $(this).find('.box').stop().animate({top: '0'});
+    });
+    $("#roll").delegate('li', 'mouseleave', function(event){
+         $(this).find('.box').stop().animate({top: '106px'});
+    });
+	 /*获取学堂公告 */
+	$.get("/b/wlxt/gg/gg_xxb/querynotetop3",function(dataList){ 
+		renderData(dataList.object);
+	}); 
+	/* 	获取校内公开课 和 全球公开课 */
+	$.get("/b/kc/wlkc_kcb/querycoursetop?num=20",function(dataList){ 
+		if(dataList.message = "success"){
+		  rendercourse(dataList);
+		  if($("#rollGlobal").length){
+		    var via = 5; //每次滚动5个li标签
+		    var limargin_right = 0; //每一个li标签右边距为10px
+		    var oliTimes; //定义可滚动次数
+		    var b = true;
+
+		    var adiv = document.getElementById("rollGlobal");
+		    var oul = adiv.getElementsByTagName("ul")[0];
+		    var ali = oul.getElementsByTagName("li");
+		    // oul.innerHTML += oul.innerHTML;
+		    var iwidth = ali[0].offsetWidth + limargin_right;
+		    oul.style.width = iwidth * (ali.length) + "px";
+		    oliTimes = Math.ceil(ali.length / via); //3
+		    var n1 = 0;
+
+
+		    function rclick (){
+		        if (b) {
+		            b = false;
+		            if(iwidth * via*(n1+1)>=$("#rollGlobal ul").width()){
+		            	b = true;
+		            	return;
+		            }
+		            n1 ++;
+		            if (n1 >= oliTimes) {
+		                n1 = oliTimes - 1
+		            }
+		            	            
+		            $("#rollGlobal li").animate({left: -iwidth * via * n1}, 2000, function () {
+		                b = true;
+		            });
+		            return n1;
+		        }
+		    }
+		    function lclick(){
+		        if (b) {
+		            b = false;
+		            n1 = n1 - 1;
+		            if (n1 < 0) {
+		                n1 = 0
+		            }
+		            $("#rollGlobal li").animate({left: -iwidth * via * n1}, 2000, function () {
+		                b = true
+		            });
+		        }
+		    }
+
+		    $('.rtconquanqiu').on('click', '', function(event) {
+                rclick();
+                event.preventDefault();
+                /* Act on the event */
+            });
+		    $('.ltconquanqiu').on('click', '', function(event) {
+                lclick();
+                event.preventDefault();
+                /* Act on the event */
+            });
+		  }
+		 // var id = $(this).attr("id");
+		 if($("#roll").length){
+        var via = 5; //每次滚动5个li标签
+        var limargin_right = 21; //每一个li标签右边距为10px
+        var oliTimes; //定义可滚动次数
+        var b = true;
+
+        var adiv = document.getElementById("roll");
+        var oul = adiv.getElementsByTagName("ul")[0];
+        var ali = oul.getElementsByTagName("li");
+        // oul.innerHTML += oul.innerHTML;
+        var iwidth = ali[0].offsetWidth + limargin_right;
+        oul.style.width = iwidth * (ali.length) + "px";
+        oliTimes = Math.ceil(ali.length / via); //3
+        var n2 = 0;
+        $('.rtconxiaonei').on('click', '', function(event) {
+            if (b) {
+                b = false;
+	            if(iwidth * via*(n2+1)>=$("#roll ul").width()){
+	            	b = true;
+	            	return;
+	            }
+	            n2 ++;
+                if (n2 >= oliTimes) {
+                    n2 = oliTimes - 1
+                }
+	                      
+                $("#roll li").animate({left: -iwidth * via * n2}, 2000, function () {
+                    b = true
+                });
+                return n2;
+            }
+            event.preventDefault();
+            /* Act on the event */
+        });
+
+        $('.ltconxiaonei').on('click', '', function(event) {
+            if (b) {
+                b = false;
+                n2 = n2 - 1;
+                if (n2 < 0) {
+                    n2 = 0
+                }
+                $("#roll li").animate({left: -iwidth * via * n2}, 2000, function () {
+                    b = true
+                });
+            }
+            event.preventDefault();
+            /* Act on the event */
+        });
+		}}
+	});
+})
+function formatDateTime(inputTime) {    
+    var date = new Date(inputTime);  
+    var y = date.getFullYear();    
+    var m = date.getMonth() + 1;    
+    m = m < 10 ? ('0' + m) : m;    
+    var d = date.getDate();    
+    d = d < 10 ? ('0' + d) : d;    
+    var h = date.getHours();  
+    h = h < 10 ? ('0' + h) : h;  
+    var minute = date.getMinutes();  
+    var second = date.getSeconds();  
+    minute = minute < 10 ? ('0' + minute) : minute;    
+    second = second < 10 ? ('0' + second) : second;   
+    return y + '-' + m + '-' + d+' '+h+':'+minute+':'+second;    
+}; 
+rendercourse= function (dataList){
+	 if(dataList.result.length==0){
+         var rows ="<p style='text-align:center;'>暂无课程</p>";
+         $("#course2div").html(rows);
+ }
+	 if(dataList.resultList.length==0){
+		    var rows ="<p style='text-align:center;'>暂无课程</p>";
+		    $("#course3div").html(rows);
+		}	 
+	$.each(dataList.result,function(i,val){
+		if(dataList.result==null){
+			var rows ="<p>暂无课程</p>";
+			  $("#course2div").append(rows);
+		}else{
+		var rows ="  <li  onclick='globalcoursedetail1(\""+val.courseid+"\")'>  <a>  <div class='item-global list"+i%5+"'>";
+		  if(val.coursephotourl==null){
+			  rows +=" <div class='img'><img src='/res/app/wlxt/img/course-default2.jpg'></div>";
+		  }else{
+			 rows +=" <div class='img'><img src='/b/wlxt/kc/v_kcxx_jskcxx/teacher/showImageById?wlkcid="+val.courseid+"'></div>";
+		  }
+			rows +=" <div class='box'>";
+			rows +="  <div class='title'><span>"+val.coursename+" </span></div>";
+			rows +=" <div class='professor'>  <p><span>"+val.teachername+"</span><span  class='ml-4'>"+val.teacherzc+"</span></p> <p>"+val.unit+" </p>";
+			rows +="</div></div></div></a></li></div>";
+			$("#rollGlobal ul").append(rows);
+		}
+	});
+ 
+	$.each(dataList.resultList,function(i,val){
+		if(dataList.resultList !=null){
+			var rows ="<li   onclick='schoolcoursedetail(\""+val.courseid+"\")' class='list"+i%5+"'>  <p class='listtitle'>"+val.coursename+"</p>";
+			rows +="<p class='listcontent'><span>"+val.teachername+"</span><span class='ml-4'>"+val.teacherzc+"</span></p><p class='depart'>"+val.unit+" </p>";
+			rows +="<a onclick='schoolcoursedetail(\""+val.courseid+"\")' class='cjakan ababab'>"+wlxtlang_chakanxiangqing+"&nbsp;&nbsp;<img src='/res/app/wlxt/img/arrow11.png'></a></li>";
+		  $("#course1").append(rows);
+		 }else{
+			var rows ="<p>暂无课程</p>";
+		  $("#course1").append(rows);
+		}
+	});
+}
+    /* 过滤标签 */
+    filterHTMLTag = function (msg) {
+        var msg = msg.replace(/<\/?[^>]*>/g, ''); //去除HTML Tag
+        msg = msg.replace(/[|]*\n/, '') //去除行尾空格
+        msg = msg.replace(/&npsp;/ig, ''); //去掉npsp
+        return msg;
+    }
+renderData = function (dataList){
+	$.each(dataList,function(i,val){
+		if(val.detail==null){
+			var detail ='';
+		}else{
+			detail= MyApp.escapeChars(val.bz);
+		}
+		var rows = "<div class='con-hover'> <div class='hover-item'> <div onclick='noticedetail(\""+val.ggid+"\")'  class='item-notice'> <div class='title'>"+val.title+"</div>";
+			rows += "<div class='desc'> <span>"+filterHTMLTag(detail)+"</span></div>";
+			rows += "<div class='time'>"+ formatDateTime(val.reg_date).substring(0,10) +"</div><a onclick='noticedetail(\""+val.ggid+"\")' class='cjakan ck_gg'>"+wlxtlang_chakanxiangqing+"&nbsp;&nbsp;<img src='/res/app/wlxt/img/arrow11.png' alt=''></a></div>";
+			rows += "</div></div></div>";
+		$("#notice").append(rows);
+	});
+};
+ 
+/* 公告详细页 */
+function  noticedetail(id){
+	  window.location.href = "/f/gg/gg_xxb/beforeView/?id="+id;
+};
+/* 公告列表页 */
+hrefnoticelist = function (){
+	  window.open("/f/wlxt/notice/list");
+};
+/* 全球公开课列表页 */
+hrefglobalist = function (){
+	  window.open("/f/wlxt/common/globaCourse");
+};
+/* 校内公开课列表页 */
+hrefcourse1list = function (){
+	window.open("/f/wlxt/common/schoolCourse");
+};
+/* 校内课程详细页 */
+function schoolcoursedetail(id){
+	window.location.href="/f/wlxt/gkk/v_wlkc_jsjbxxb_wjb/all/SchoolCourseinfo/"+id;
+};
+/* 全球详细页 */
+function globalcoursedetail1(wlkcid){
+	window.location.href="/f/wlxt/gkk/v_wlkc_jsjbxxb_wjb/all/globalCourseinfo/"+wlkcid;
+};
+ 
+</script>
+<script src="/res/js/common/myApp.js?v=322"></script>  
+<script type="text/javascript" src="/res/app/wlxt/js/plugin/template.js?v=322"></script>
+<script type="text/javaScript" src="/res/js/common/login.js?v=322"></script>
+</body>
+</html>
+ 

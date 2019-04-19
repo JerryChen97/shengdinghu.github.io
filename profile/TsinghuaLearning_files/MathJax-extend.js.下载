@@ -1,0 +1,42 @@
+function isInclude(name){
+	var js= /js$/i.test(name);
+	var es=document.getElementsByTagName(js?'script':'link');
+	for(var i=0;i<es.length;i++) 
+	if(es[i][js?'src':'href'].indexOf(name)!=-1)return true;
+	return false;
+}
+function loadScript(url, callback){
+    var script = document.createElement ("script")
+    script.type = "text/javascript";
+    if (script.readyState){ //IE
+        script.onreadystatechange = function(){
+            if (script.readyState == "loaded" || script.readyState == "complete"){
+                script.onreadystatechange = null;
+                callback();
+            }
+        };
+    } else { //Others
+        script.onload = function(){
+            callback();
+        };
+    }
+    script.src = url;
+    document.body.appendChild(script);
+}
+function MathForJs(html){
+	if(html==""||html==undefined||html.length==0)return;
+	if(html.indexOf("math-tex")>-1){
+		if(!isInclude("MathJax.js")){
+			loadScript("/component/MathJaxMini/MathJax.js",function(){
+				MathJax.Hub.Config({
+				    extensions: ["tex2jax.js"],
+				    jax: ["input/TeX","output/HTML-CSS"],
+				    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+				});
+			});
+		}else{
+			MathJax.Hub.Queue([ "Typeset",MathJax.Hub ]);
+		}
+		
+	}
+}
